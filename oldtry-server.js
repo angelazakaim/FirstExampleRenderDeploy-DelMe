@@ -1,17 +1,13 @@
-import app from "./app.js";
-import dbInit from "./db-init.js";
+// //start the server
+// import app from "./app.js";
+// import dbInit from "./db-init.js";
 
-// 1. Port Configuration
-const PORT = process.env.PORT || 8080;
+// // const PORT = 8080;
+// // const server = app.listen(PORT, () => {
+// //   console.log(`Server running on http://localhost:${PORT}`);
+// // });
 
-// 2. Database & Server Startup
-const startServer = async () => {
-  try {
-    // Separate Action: Initialize the database
-    await dbInit();
 
-    // Separate Action: Start listening
-    
 // // This block of code is designed to make your server work perfectly both
 // //  on your personal computer and on cloud platforms like **Render**.
 // // Here is the breakdown of what each part does:
@@ -30,21 +26,29 @@ const startServer = async () => {
 // // Imagine you are opening a lemonade stand:
 // // * **`PORT`**: This is the street number of your stand. On your own street, you use number `8080`. But if the city (Render) moves you to a different street, you have to use the number they give you.
 // // * **`'0.0.0.0'`**: This is like taking down the "Private Property" fence. It ensures that people from other neighborhoods (the internet) are allowed to come and buy your lemonade, rather than just your own family.
-// 
-    const server = app.listen(PORT, '0.0.0.0', () => {
-      console.log(`Server running on port ${PORT}`);
-    });
+// const PORT = process.env.PORT || 8080;
+// // const server = app.listen(PORT, '0.0.0.0', () => {
+// //   console.log(`Server running on port ${PORT}`);
+// // });
 
-    // Handle server-level errors (like port already in use)
-    server.on("error", (err) => {
-      console.error("Server error:", err);
-      process.exit(1);
-    });
+// let server ;
 
-  } catch (err) {
-    console.error("Failed to initialize database. Server not started.", err);
-    process.exit(1);
-  }
-};
+// // Initialize DB, then start the server
+// dbInit().then(() => {
+//   server = app.listen(PORT, '0.0.0.0', () => {
+//     console.log(`Server running on port ${PORT}`);
+//   });
+// });
 
-startServer();
+
+// server.on("error", (err) => {
+//   console.error("Server error:", err);
+//   process.exit(1);
+// });
+
+
+// // What this demonstrates
+// // Express hides http.createServer
+// // Cleaner routing
+// // Built-in response helpers
+// // Less boilerplate
